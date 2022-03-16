@@ -1,7 +1,5 @@
 package com.qingyan.audit.handler;
 
-import java.util.List;
-
 import com.qingyan.audit.pojo.AuditLogRecord;
 
 /**
@@ -19,6 +17,5 @@ public interface IAuditLogHandler {
      * @param auditLogRecord {@link AuditLogRecord}
      */
     void handleRecord(AuditLogRecord auditLogRecord);
-
 
 }

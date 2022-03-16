@@ -22,6 +22,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class AuditLogRecord implements Serializable {
 
+    /**
+     * serialVersionUID
+     */
     private static final long serialVersionUID = 7915910801199728820L;
 
     /**
