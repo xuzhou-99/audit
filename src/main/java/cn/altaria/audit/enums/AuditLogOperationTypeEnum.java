@@ -1,4 +1,4 @@
-package com.qingyan.audit.enums;
+package cn.altaria.audit.enums;
 
 /**
  * AuditLogOperationTypeEnum

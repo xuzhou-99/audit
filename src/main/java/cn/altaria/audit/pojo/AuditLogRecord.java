@@ -1,4 +1,4 @@
-package com.qingyan.audit.pojo;
+package cn.altaria.audit.pojo;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

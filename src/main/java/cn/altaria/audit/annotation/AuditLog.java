@@ -1,4 +1,4 @@
-package com.qingyan.audit.annotation;
+package cn.altaria.audit.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -6,8 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.qingyan.audit.enums.AuditLogModuleEnum;
-import com.qingyan.audit.enums.AuditLogOperationTypeEnum;
+import cn.altaria.audit.enums.AuditLogModuleEnum;
+import cn.altaria.audit.enums.AuditLogOperationTypeEnum;
 
 
 /**

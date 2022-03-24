@@ -1,6 +1,6 @@
-package com.qingyan.audit.handler;
+package cn.altaria.audit.handler;
 
-import com.qingyan.audit.pojo.AuditLogRecord;
+import cn.altaria.audit.pojo.AuditLogRecord;
 
 /**
  * IAuditLogHandler 审计日志服务层，通过实现该接口来具体处理审计日志逻辑

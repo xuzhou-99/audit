@@ -1,4 +1,4 @@
-package com.qingyan.audit.aspect;
+package cn.altaria.audit.aspect;
 
 import java.lang.reflect.Method;
 import java.time.LocalDateTime;
@@ -22,9 +22,9 @@ import org.springframework.expression.common.TemplateParserContext;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import com.qingyan.audit.annotation.AuditLog;
-import com.qingyan.audit.handler.IAuditLogHandler;
-import com.qingyan.audit.pojo.AuditLogRecord;
+import cn.altaria.audit.annotation.AuditLog;
+import cn.altaria.audit.handler.IAuditLogHandler;
+import cn.altaria.audit.pojo.AuditLogRecord;
 
 
 /**
@@ -67,7 +67,7 @@ public class AuditLogAspect {
     /**
      * 定义注解切点，注解拦截
      */
-    @Pointcut(value = "@annotation(com.qingyan.audit.annotation.AuditLog)")
+    @Pointcut(value = "@annotation(cn.altaria.audit.annotation.AuditLog)")
     public void auditLogPoint() {
 
     }

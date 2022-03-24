@@ -1,10 +1,10 @@
-package com.qingyan.audit.config;
+package cn.altaria.audit.config;
 
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.qingyan.audit.aspect.AuditLogAspect;
+import cn.altaria.audit.aspect.AuditLogAspect;
 
 /**
  * AuditLogConfiguration
