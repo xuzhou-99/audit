@@ -3,7 +3,9 @@ package cn.altaria.audit.pojo;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
@@ -20,6 +22,8 @@ import lombok.experimental.Accessors;
 @Getter
 @ToString
 @Accessors(chain = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class AuditLogRecord implements Serializable {
 
     /**
@@ -33,24 +37,9 @@ public class AuditLogRecord implements Serializable {
     private String bh;
 
     /**
-     * 用户Id
-     */
-    private String userId;
-
-    /**
-     * 用户名称
-     */
-    private String userName;
-
-    /**
      * 日志内容
      */
     private String description;
-
-    /**
-     * 用户登录名
-     */
-    private String userLoginId;
 
     /**
      * 操作类型
@@ -76,6 +65,21 @@ public class AuditLogRecord implements Serializable {
      * 操作日志时间
      */
     private LocalDateTime operationTime;
+
+    /**
+     * 用户Id
+     */
+    private String userId;
+
+    /**
+     * 用户名称
+     */
+    private String userName;
+
+    /**
+     * 用户登录名
+     */
+    private String userLoginId;
 
     /**
      * IP
