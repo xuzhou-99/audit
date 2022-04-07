@@ -103,11 +103,10 @@ public class AuditLogAspect {
 //                // 获取IP
 //                String ip = RequestUtils.getIpAddress(request);
 //                auditLogRecord.setIp(ip);
-//                if (null != request) {
-//                    // 获取 user-agent
-//                    String userAgent = request.getHeader("user-agent");
-//                    auditLogRecord.setUserAgent(userAgent);
-//                }
+//
+//                // 获取 user-agent
+//                String userAgent = RequestUtils.getUserAgent(request);
+//                auditLogRecord.setUserAgent(userAgent);
 //            }
 
             LOGGER.info("args：{}", args);
