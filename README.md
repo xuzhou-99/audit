@@ -2,6 +2,53 @@
 
 通过Spring AOP切面来实现审计日志模块，面向切面编程能够降低与系统主题业务逻辑之间的耦合度， 从而实现更加精练的系统架构。
 
+### 最终使用示例
+```java
+
+/**
+ * ExampleController
+ *
+ * @author xuzhou
+ * @version v1.0.0
+ * @date 2022/2/16 22:53
+ */
+@Controller
+public class ExampleController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ExampleController.class);
+
+    /**
+     * 审计日志注解示例
+     *
+     * @param params {@link JSONObject}
+     * @param bh     {@link String}
+     * @return 操作结果
+     */
+    @PostMapping({"/audit"})
+    @ResponseBody
+    @AuditLog(description = "审计日志", module = AuditLogModuleEnum.USER, extension = "单位名称：#{[0].get('name')},编号：#{[1]}")
+    public Object updateCorp(JSONObject params, String bh) {
+        logger.info("单位名称：{}", params.get("name"));
+        logger.info("编号：{}", bh);
+        return "ok";
+    }
+
+    /**
+     * 审计日志注解示例
+     *
+     * @param bh     {@link String}
+     * @return 操作结果
+     */
+    @GetMapping({"/audit1"})
+    @ResponseBody
+    @AuditLog(description = "审计日志", module = AuditLogModuleEnum.USER, extension = "编号：#{[0]}")
+    public Object test1( String bh) {
+        logger.info("编号：{}", bh);
+        return "ok";
+    }
+}
+```
+
 ### 依赖
 
 引入Spring AOP模块依赖
@@ -361,7 +408,7 @@ public class AuditLogAspect {
     /**
      * 定义注解切点，注解拦截
      */
-    @Pointcut(value = "@annotation(com.thunisoft.zhfy.audit.annotation.AuditLog)")
+    @Pointcut(value = "@annotation(com.qingyan.audit.annotation.AuditLog)")
     public void auditLogPoint() {
 
     }
