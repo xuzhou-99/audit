@@ -25,14 +25,13 @@ public enum AuditLogOperationTypeEnum {
     upload(7, "资源上传"),
     ;
 
+    private final int typeCode;
+    private final String typeName;
+
     AuditLogOperationTypeEnum(int typeCode, String typeName) {
         this.typeCode = typeCode;
         this.typeName = typeName;
     }
-
-    private final int typeCode;
-
-    private final String typeName;
 
     public int getTypeCode() {
         return typeCode;

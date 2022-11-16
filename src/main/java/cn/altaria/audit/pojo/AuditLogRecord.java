@@ -3,9 +3,6 @@ package cn.altaria.audit.pojo;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

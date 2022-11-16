@@ -19,14 +19,13 @@ public enum AuditLogModuleEnum {
     RIGHT(3, "权限"),
     ;
 
+    private final int moduleCode;
+    private final String moduleName;
+
     AuditLogModuleEnum(int moduleCode, String moduleName) {
         this.moduleCode = moduleCode;
         this.moduleName = moduleName;
     }
-
-    private final int moduleCode;
-
-    private final String moduleName;
 
     public int getModuleCode() {
         return moduleCode;

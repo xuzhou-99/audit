@@ -17,7 +17,7 @@ import cn.altaria.audit.aspect.AuditLogAspect;
 public class AuditLogConfiguration {
 
     @Bean
-    public AuditLogAspect auditLogAspect(){
+    public AuditLogAspect auditLogAspect() {
         return new AuditLogAspect();
     }
 
