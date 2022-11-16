@@ -2,7 +2,7 @@
 drop table sys_audit_log;
 create table sys_audit_log
 (
-    bh              bigint                                    not null comment '编号'
+    bh              varchar(50)                               not null comment '编号'
         primary key,
     description     varchar(3000)                             null comment '日志内容',
     module_code     varchar(10)                               null comment '日志模块类型',
