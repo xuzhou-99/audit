@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -21,10 +22,13 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.common.TemplateParserContext;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import cn.altaria.audit.annotation.AuditLog;
 import cn.altaria.audit.handler.IAuditLogHandler;
 import cn.altaria.audit.pojo.AuditLogRecord;
+import cn.altaria.base.util.RequestUtils;
 
 
 /**
@@ -42,7 +46,7 @@ import cn.altaria.audit.pojo.AuditLogRecord;
  * 👉   正常 {@link AfterReturning} 在连接点（方法）成功执行后执行   👉   {@link After} 在连接点（方法）之后执行，无论异常与否  👉   {@link org.aspectj.lang.annotation.Around}
  *
  * @author xuzhou
- * @version v1.0.0
+ * @version v1.0.1
  * @date 2022/2/10 16:25
  */
 @Aspect
@@ -81,7 +85,7 @@ public class AuditLogAspect {
      */
     @Around(value = "logPoint(auditLog)", argNames = "point,auditLog")
     public Object doAround(ProceedingJoinPoint point, AuditLog auditLog) {
-        LOGGER.info("进入 @Around ......");
+        LOGGER.debug("进入 @Around ......");
         Object result = null;
         try {
 
@@ -95,19 +99,19 @@ public class AuditLogAspect {
             // 获取方法参数
             Object[] args = point.getArgs();
 
-//            // 获取 RequestAttributes
-//            RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-//            if (null != requestAttributes) {
-//                // 获取 HttpServletRequest
-//                HttpServletRequest request = (HttpServletRequest) requestAttributes.resolveReference(RequestAttributes.REFERENCE_REQUEST);
-//                // 获取IP
-//                String ip = RequestUtils.getIpAddress(request);
-//                auditLogRecord.setIp(ip);
-//
-//                // 获取 user-agent
-//                String userAgent = RequestUtils.getUserAgent(request);
-//                auditLogRecord.setUserAgent(userAgent);
-//            }
+            // 获取 RequestAttributes, 迁移出到 IAuditLogHandler 实现类处理,减少 audit 包依赖
+            RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+            if (null != requestAttributes) {
+                // 获取 HttpServletRequest
+                HttpServletRequest request = (HttpServletRequest) requestAttributes.resolveReference(RequestAttributes.REFERENCE_REQUEST);
+                // 获取IP
+                String ip = RequestUtils.getIpAddress(request);
+                auditLogRecord.setIp(ip);
+
+                // 获取 user-agent
+                String userAgent = RequestUtils.getUserAgent(request);
+                auditLogRecord.setUserAgent(userAgent);
+            }
 
             LOGGER.info("args：{}", args);
             String expression = parseExtensionExpression(auditLog.extension(), args);
@@ -130,7 +134,7 @@ public class AuditLogAspect {
             throwable.printStackTrace();
         }
 
-        LOGGER.info("退出 @Around ......");
+        LOGGER.debug("退出 @Around ......");
         return result;
     }
 
@@ -140,8 +144,7 @@ public class AuditLogAspect {
      */
     @Before(value = "auditLogPoint()")
     public void doBefore() {
-        LOGGER.info("进入 @Before......");
-
+        // ignore
     }
 
     /**
@@ -149,8 +152,7 @@ public class AuditLogAspect {
      */
     @AfterReturning(value = "auditLogPoint()")
     public void doAfterReturning() {
-        LOGGER.info("进入 @AfterReturning......");
-
+        // ignore
     }
 
     /**
@@ -167,8 +169,7 @@ public class AuditLogAspect {
 
     @After(value = "auditLogPoint()")
     public void doAfter() {
-        LOGGER.info("进入 @After......");
-
+        // ignore
     }
 
 

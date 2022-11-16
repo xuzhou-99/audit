@@ -44,6 +44,17 @@
         </developer>
     </developers>
 
+    <repositories>
+        <!-- github -->
+        <repository>
+            <id>github</id>
+            <url>https://raw.github.com/xuzhou-99/mvn-repo/main</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <scm>
         <connection>scm:git:git://github.com/xuzhou-99/audit.git</connection>
@@ -53,6 +64,14 @@
 
 
     <dependencies>
+
+        <!--web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -78,6 +97,14 @@
             <artifactId>persistence-api</artifactId>
             <version>1.0.2</version>
         </dependency>
+
+        <!--base 基础包-->
+        <dependency>
+            <groupId>cn.altaria</groupId>
+            <artifactId>base</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
