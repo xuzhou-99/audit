@@ -5,10 +5,10 @@
 
     <groupId>cn.altaria</groupId>
     <artifactId>audit</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>audit</name>
-    <description>audit</description>
+    <description>基于Spring AOP实现的审计日志模块</description>
     <url>https://github.com/xuzhou-99/audit</url>
 
 

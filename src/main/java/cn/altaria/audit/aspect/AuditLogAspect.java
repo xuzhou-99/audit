@@ -161,7 +161,7 @@ public class AuditLogAspect {
      */
     @AfterThrowing(pointcut = "auditLogPoint()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
-        LOGGER.error("进入 @AfterThrowing......错误：" + e.getMessage());
+        LOGGER.error("进入 @AfterThrowing......错误：{}", e.getMessage());
 
     }
 

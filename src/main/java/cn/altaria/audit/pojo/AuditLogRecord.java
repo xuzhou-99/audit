@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
  * 审计日志信息
  *
  * @author xuzhou
- * @version v1.0.0
+ * @version v1.0.1
  * @date 2022/2/10 16:17
  */
 @Setter
@@ -29,79 +29,79 @@ public class AuditLogRecord implements Serializable {
      * 日志编号
      */
     @Id
-    @Column(name = "C_BH")
+    @Column(name = "BH")
     private String bh;
 
     /**
      * 日志内容
      */
-    @Column(name = "C_DESCRIPTION")
+    @Column(name = "DESCRIPTION")
     private String description;
 
     /**
      * 操作类型
      */
-    @Column(name = "n_operation_type")
+    @Column(name = "operation_type")
     private Integer operationType;
 
     /**
      * 操作类型名称
      */
-    @Column(name = "c_operation_name")
+    @Column(name = "operation_name")
     private String operationName;
 
     /**
      * 日志模块类型
      */
-    @Column(name = "n_module_code")
+    @Column(name = "module_code")
     private Integer moduleCode;
 
     /**
      * 日志模块名称
      */
-    @Column(name = "c_module_name")
+    @Column(name = "module_name")
     private String moduleName;
 
     /**
      * 操作日志时间
      */
-    @Column(name = "dt_operation_time")
+    @Column(name = "operation_time")
     private LocalDateTime operationTime;
 
     /**
      * 用户Id
      */
-    @Column(name = "c_user_id")
+    @Column(name = "user_id")
     private String userId;
 
     /**
      * 用户名称
      */
-    @Column(name = "c_user_name")
+    @Column(name = "user_name")
     private String userName;
 
     /**
      * 用户登录名
      */
-    @Column(name = "c_user_loginid")
-    private String userLoginId;
+    @Column(name = "user_login_name")
+    private String userLoginName;
 
     /**
      * userAgent
      */
-    @Column(name = "c_user_agent")
+    @Column(name = "user_agent")
     private String userAgent;
 
     /**
      * IP
      */
-    @Column(name = "C_IP")
+    @Column(name = "ip")
     private String ip;
 
     /**
      * 拓展字段
      */
-    @Column(name = "C_EXTENSION")
+    @Column(name = "extension")
     private String extension;
 
 
