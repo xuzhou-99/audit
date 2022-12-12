@@ -26,7 +26,7 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 import cn.altaria.audit.annotation.AuditLog;
-import cn.altaria.audit.handler.AbstractAuditLogHandler;
+import cn.altaria.audit.handler.IAuditLogHandler;
 import cn.altaria.audit.pojo.AuditLogRecord;
 import cn.altaria.audit.util.RequestUtils;
 
@@ -55,7 +55,7 @@ public class AuditLogAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(AuditLogAspect.class);
 
     @Resource
-    private AbstractAuditLogHandler auditLogHandler;
+    private IAuditLogHandler auditLogHandler;
 
 
     /**
