@@ -31,7 +31,7 @@ COMMENT ON COLUMN "sys_audit_log"."user_login_name" IS '用户登录名';
 COMMENT ON COLUMN "sys_audit_log"."user_agent" IS 'userAgent';
 COMMENT ON COLUMN "sys_audit_log"."ip" IS 'IP';
 COMMENT ON COLUMN "sys_audit_log"."extension" IS '拓展字段';
-COMMENT ON TABLE "sys_audit_log" IS '审计日志表';
+COMMENT ON TABLE "sys_audit_log" IS '系统审计日志表';
 
 -- ----------------------------
 -- Primary Key structure for table sys_audit_log
